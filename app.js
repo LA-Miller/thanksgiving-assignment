@@ -114,7 +114,7 @@ $(document).ready(function () {
    * @param {'info' | 'error' | 'success'} type
    */
   function setStatus(text, type) {
-    $statusMessage.removeClass('info error success').addClass(`message ${type}`).text(text);
+    $statusMessage.removeClass('info error success').addClass(type).text(text);
   }
 
   /**

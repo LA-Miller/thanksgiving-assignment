@@ -102,7 +102,7 @@ $(document).ready(function () {
       });
 
       const $content = $('<div>', { class: 'card-content' });
-      const $date = $('<div>', { class: 'date', text: `${date} ${time}` });
+      const $date = $('<div>', { class: 'date', text: `${date}${time ? ' ' + time : ''}` });
       const $caption = $('<p>', { class: 'caption', text: item.caption || 'No caption provided.' });
       const $meta = $('<div>', { class: 'meta', text: `Centroid coordinates: Lat ${item.centroid_coordinates.lat}, Lon ${item.centroid_coordinates.lon}` });
       const $actions = $('<div>', { class: 'actions' });

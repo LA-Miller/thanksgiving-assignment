@@ -58,7 +58,26 @@ $(document).ready(function () {
     items.forEach(function (item) {
       const date = item.date.split(' ')[0];
       const time = item.date.split(' ')[1] || '';
-      const [year, month, day] = date.split('-');
+      const dateParts = date.split('-');
+      // Validate date format: YYYY-MM-DD
+      if (
+        dateParts.length !== 3 ||
+        !/^\d{4}$/.test(dateParts[0]) ||
+        !/^\d{2}$/.test(dateParts[1]) ||
+        !/^\d{2}$/.test(dateParts[2])
+      ) {
+        // Skip this item or show a placeholder/error card
+        const $errorCard = $('<article>', { class: 'card error-card' });
+        $errorCard.append(
+          $('<div>', { class: 'card-content' }).append(
+            $('<div>', { class: 'date', text: date + (time ? ' ' + time : '') }),
+            $('<p>', { class: 'caption', text: 'Invalid date format. Image cannot be displayed.' })
+          )
+        );
+        $gallery.append($errorCard);
+        return;
+      }
+      const [year, month, day] = dateParts;
       const imageId = item.image;
       const imageUrl = `https://epic.gsfc.nasa.gov/archive/natural/${year}/${month}/${day}/png/${imageId}.png`;
 

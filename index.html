@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA EPIC Earth Viewer</title>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-3gJwYpOj8z+KpT02Ki9MylXJbL7MBS2ejbfg3Ck0SIA=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">NASA EPIC</p>
+        <h1>NASA EPIC Earth Viewer</h1>
+        <p class="subtitle">Explore the most recent natural-color images of Earth captured by NASA's Earth Polychromatic Imaging Camera (EPIC) aboard the DSCOVR spacecraft.</p>
+      </div>
+    </header>
+
+    <section class="controls container">
+      <div class="control-group">
+        <label for="api-key">NASA API Key</label>
+        <input type="text" id="api-key" name="api-key" placeholder="Enter your NASA API key" value="DEMO_KEY" />
+        <small class="note">Using DEMO_KEY may be rate-limited.</small>
+      </div>
+      <div class="control-group">
+        <label for="date-input">Date (YYYY-MM-DD) <span class="muted">optional</span></label>
+        <input type="date" id="date-input" name="date" max="" />
+        <small class="note">Leave blank to load the latest available images.</small>
+      </div>
+      <div class="actions">
+        <button id="load-images" class="btn primary">Load Images</button>
+      </div>
+    </section>
+
+    <section class="status container" aria-live="polite">
+      <div id="spinner" class="spinner" aria-hidden="true"></div>
+      <div id="status-message" class="status-message">Enter your API key and click "Load Images" to view EPIC images.</div>
+    </section>
+
+    <main class="container">
+      <div id="gallery" class="gallery grid"></div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

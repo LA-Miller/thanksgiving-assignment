@@ -65,8 +65,12 @@ $(document).ready(function () {
     $gallery.empty();
 
     items.forEach(function (item) {
-      const date = item.date.split(' ')[0];
-      const time = item.date.split(' ')[1] || '';
+      // Robustly parse date and time from item.date
+      const dateObj = new Date(item.date);
+      // Format date as YYYY-MM-DD
+      const date = dateObj.toISOString().slice(0, 10);
+      // Format time as HH:MM:SS
+      const time = dateObj.toISOString().slice(11, 19);
       const dateParts = date.split('-');
       // Validate date format: YYYY-MM-DD
       if (

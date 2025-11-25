@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NASA EPIC Earth Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-3fhDOd2I+Y7IYt+6v0QmaCM81Z0SqnU5r9v7N+cbzU8=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="hero">
+      <h1>NASA EPIC Earth Viewer</h1>
+      <p class="subtitle">Explore Earth in vivid detail through NASA's Earth Polychromatic Imaging Camera (EPIC), capturing our planet from a million miles away.</p>
+    </header>
+
+    <section class="controls">
+      <div class="input-group">
+        <label for="apiKey">NASA API Key</label>
+        <input type="text" id="apiKey" name="apiKey" placeholder="Enter your NASA API key" />
+        <small class="note">Using DEMO_KEY may be rate limited.</small>
+      </div>
+      <div class="input-group">
+        <label for="dateInput">Date (optional)</label>
+        <input type="date" id="dateInput" name="dateInput" />
+        <small class="note">Leave empty to load the latest available images.</small>
+      </div>
+      <button id="loadBtn" type="button">Load Images</button>
+    </section>
+
+    <section class="status" aria-live="polite">
+      <div id="spinner" class="spinner hidden" role="status" aria-label="Loading"></div>
+      <div id="statusMessage" class="message info">Enter your API key and click Load Images to begin.</div>
+    </section>
+
+    <section id="gallery" class="gallery-grid" aria-live="polite"></section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

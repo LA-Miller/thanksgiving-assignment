@@ -16,6 +16,15 @@ $(document).ready(function () {
     const apiKey = $apiKey.val().trim() || 'DEMO_KEY';
     const date = $dateInput.val();
     const baseUrl = 'https://api.nasa.gov/EPIC/api/natural';
+
+    // Validate date format (YYYY-MM-DD)
+    if (date) {
+      const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+      if (!dateRegex.test(date)) {
+        setStatus('Invalid date format. Please enter a date in YYYY-MM-DD format.', 'error');
+        return;
+      }
+    }
     const endpoint = date ? `${baseUrl}/date/${date}` : baseUrl;
 
     $gallery.empty();

@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   // Handle button click
   $loadBtn.on('click', function () {
-    const apiKey = $apiKey.val().trim() || 'DEMO_KEY';
+    const apiKey = '9L13PnIed1BxnDa9eGlLz8fsp9Zx5t4IPaunem3M';
     const date = $dateInput.val();
     const baseUrl = 'https://api.nasa.gov/EPIC/api/natural';
 

@@ -8,7 +8,7 @@ $(document).ready(function () {
   const $spinner = $('#spinner');
 
   // Initialize defaults
-  $apiKey.val('DEMO_KEY');
+  $apiKey.val('9L13PnIed1BxnDa9eGlLz8fsp9Zx5t4IPaunem3M');
   setStatus('Enter your API key and click Load Images to begin.', 'info');
 
   // Handle button click
